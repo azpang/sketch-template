@@ -12,19 +12,19 @@ import Routes from './routes';
 const el = document.createElement('div');
 document.body.appendChild(el);
 
-import cities from '../data/all_cities_lat_lng.json'
-import commute from '../data/oakland.csv'
-import counties from '../data/counties_lat_lng.csv'
 
+import oak from '../data/oak_geo.json'
+import poi from '../data/poi.json'
+import paths from '../data/paths.json'
 
 //Creates the initial Store
 //To understand stores read
 //http://redux.js.org/docs/api/Store.html
 const initialState = {
 	data:{
-		counties,
-		cities,
-		commute
+		oak,
+		poi,
+		paths
 	}
 };
 

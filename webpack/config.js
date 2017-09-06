@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
 const rootDir = path.join(__dirname, '../..');
 const demoDir = path.join(__dirname, '..');
 const libSources = path.join(rootDir, 'src');
@@ -74,7 +76,10 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       MAPBOX_ACCESS_TOKEN: `"${process.env.MAPBOX_ACCESS_TOKEN}"` // eslint-disable-line
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: "data/images/", to: "images" }
+    ])
   ]
 
 };
