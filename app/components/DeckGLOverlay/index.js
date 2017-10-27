@@ -6,7 +6,7 @@ import Style from "./style.js";
 const ICON_MAPPING = {
   marker: {x: 0, y: 0, width: 32, height: 32, mask: true}
 };  
-import iconMapping from '../../../data/iconLayer/location-icon-mapping.json'
+import iconMapping from '../../../data/iconLayer/pin-mapping.json';
 
 import BoundaryAnimationLayer from '../BoundaryAnimationLayer';
 
@@ -41,9 +41,7 @@ export default class DeckGLOverlay extends Component {
       maxZoom: 15,
       minZoom: 9,
       pitch: 0,
-      bearing: 0,
-      scrollZoom:false,
-      dragPan:false
+      bearing: 0
     };
   }
 
@@ -100,7 +98,7 @@ export default class DeckGLOverlay extends Component {
 
   render() {
     let that = this;
-    const {viewport, strokeWidth, data, trailLength, currentTime} = this.props;
+    const {viewport, strokeWidth, data, trailLength, currentTime, selectedIcon, time} = this.props;
     // let trips = data.paths;
 
     const layers = [
@@ -130,7 +128,7 @@ export default class DeckGLOverlay extends Component {
         onHover: (f)=>{},
         onClick: this._onGeoClick,
         updateTriggers:{
-          getFillColor:[this.props.selectedGeo, this.props.related]
+          getFillColor:[this.props.selectedGeo, this.props.related, this.props.time]
         },
         lightSettings: LIGHT_SETTINGS,
       }),
@@ -138,9 +136,25 @@ export default class DeckGLOverlay extends Component {
         id: 'icon-layer',
         data: data.poi,
         pickable:true,
-        iconAtlas: '../../../data/iconLayer/location-icon-atlas.png',
+        iconAtlas: 'images/pin-atlas.png',
         iconMapping,
-        onClick:this._onIconClick
+        onClick:this._onIconClick,
+        sizeScale:5,
+        getIcon:(f)=>{
+          if(Object.keys(selectedIcon).length>0){
+              if(f.id==selectedIcon.id){
+                return "selected-marker";
+              }else{
+                return "marker";
+              }
+          }else{
+            return "marker";
+          }
+          
+        },
+        updateTriggers:{
+          getIcon:[this.props.selectedIcon]
+        }
       })
     ];
 

@@ -40,22 +40,23 @@ export default class GeoDetailBox extends Component {
                             (<DetailBoxPast
                               colors={colors}
                               selected={selectedGeo}
-                              setRelated={this.props.setRelated}/>) :
+                              hasPresent={Object.keys(selectedIcon).length > 0}
+                              setRelated={this.props.setRelated}
+                              flip={this._flipBox}
+                              />) :
                             (<DetailBoxPresent
                               colors={colors}
                               selected={selectedIcon}
+                              flip={this._flipBox}
                               />)
+            
     let showBack = this.props.time == "past" ? "showBack": ""
     return <Style {...this.props}>
       <div className={"geo-detail-box flip-container "+ showBack}>
         <div className="flipper">
             {displaySide}
         </div>
-        {Object.keys(selectedIcon).length > 0 ? 
-          <button
-          onClick={this._flipBox}
-          >Flip</button> :
-          <div></div>}
+        
       </div>
     </Style>;
   }

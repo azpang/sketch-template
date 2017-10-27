@@ -5,6 +5,8 @@ export default styled.div`
     flex-flow: column;
     background-color:${props=>props.colors.darkblue};
     padding:30px;
+    overflow-x:hidden;
+
 
     .bg-image{
         position:absolute;
@@ -14,6 +16,10 @@ export default styled.div`
         left:0;
         z-index:-1;
     }
+    .rando-bar{
+        background-color:${props=>props.colors.salmon};
+        margin-left:0px !important;
+    }
 
     .title-section{
         height:20%
@@ -21,11 +27,11 @@ export default styled.div`
 
     .area-description{
         flex:3;
-        max-height:60%;
-        margin-top:20px;
-        margin-bottom:40px;
-        overflow-y:scroll;
+        height:350px;
+        margin-bottom:30px;
+        overflow:auto;
         font-weight:lighter;
+        z-index:10;
     }
 
     .person{

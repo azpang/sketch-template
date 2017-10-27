@@ -9,12 +9,11 @@ let geoDetailBoxWidth = windowWidth*.35;
 
 
 export default styled.div`
-    float:left;
 
     .geo-detail-box{
         position:absolute;
-        width:${geoDetailBoxWidth}px;
-        height:${geoDetailBoxHeight}px;
+        width:35vw;
+        height:80vh;
         
         top:10%;
         left:60%;
@@ -23,7 +22,7 @@ export default styled.div`
 
     .flip-container.showBack .flipper {
         transform: rotateY(180deg);
-        width:${geoDetailBoxWidth}px;
+        width:35vw;
     }
 
     /* flip speed goes here */
@@ -82,8 +81,22 @@ export default styled.div`
 
     .text-area{
         padding: 10px 30px;
-        padding-bottom:30px;
         flex:1;
+    }
+
+    .button-container{
+        padding: 0px 30px;
+        margin-bottom:20px;
+        flex:.15;
+        display:flex;
+        justify-content: flex-end;
+        max-height:30px;
+
+        img{
+            flex:.15;
+            height:30px;
+            border:0;
+        }
     }
 `;
 

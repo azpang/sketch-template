@@ -38,7 +38,6 @@ export default class TextLinker extends Component {
 
   //This is where you render your component
   render() {
-  	//This is the "spread" syntax for object in ES6
     let that = this;
     let text = this.props.text.split(" ").map((word, i)=>{
       let kw = "";
@@ -49,7 +48,7 @@ export default class TextLinker extends Component {
       if(this.state.selectedWord==word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")){
         id = "underlined"
       }
-      return (<span><span id={id} className={kw} value={word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")} key={i} onClick={that._onWordClick}>{word}</span><span> </span></span>)
+      return (<span key={i}><span id={id} className={kw} value={word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")} key={i} onClick={that._onWordClick}>{word}</span><span> </span></span>)
     })
     return <Style {...this.props} className="text-linker">
       {text}

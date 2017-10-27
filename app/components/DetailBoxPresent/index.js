@@ -21,8 +21,11 @@ export default class DetailBoxPresent extends Component {
   render() {
     let {selected} = this.props;
   	//This is the "spread" syntax for object in ES6
+
+    
     return <Style {...this.props} className="present">
         <img className="bg-image" src={selected.image} />
+        <div className="rando-bar"></div>
         <div className="title-section">
           <div className="title">{selected.title}</div>
           <div className="area-id">Area: {selected.area}</div>
@@ -30,6 +33,7 @@ export default class DetailBoxPresent extends Component {
         
         <div className="area-description">
           {selected.description}
+          
         </div>
         <div className="person">
           <div className="headshot-container">
@@ -39,8 +43,14 @@ export default class DetailBoxPresent extends Component {
             <div className="name">{selected.person}</div>
             <div className="since">East Bay Resident Since {selected.since}</div>
           </div>
+          
         </div>
-        <div className="clear"></div>
+        {Object.keys(selected).length > 0 ? 
+            <div className="button-container"
+              onClick={this.props.flip}>
+              <img src="images/Arrow.png"/>
+            </div>:
+              <div></div>}
     </Style>;
   }
 }

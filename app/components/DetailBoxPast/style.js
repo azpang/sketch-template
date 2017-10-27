@@ -9,10 +9,14 @@ export default styled.div`
         flex:1;
         width:100%;
         height:40%;
+        display:flex;
         margin-bottom:30px;
         img{
             height:100%;
+            flex:1;
+            filter:sepia(20%);
         }
+        
     }
 
     .rando-bar{
@@ -23,6 +27,7 @@ export default styled.div`
         flex:1;
         display:flex;
         flex-flow: column;
+        overflow-y:auto;
 
         .title{
             flex:1;

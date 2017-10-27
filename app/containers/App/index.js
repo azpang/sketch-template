@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {render} from 'react-dom';
 
 import MapGL from 'react-map-gl';
+import Modal from 'react-modal';
 
 import DeckGLOverlay from '../../components/DeckGLOverlay';
 import Basic from '../../components/Basic';
@@ -14,6 +15,7 @@ import {json as requestJson,
         csv as requestCSV} from 'd3-request';
 
 import GeoDetailBox from '../../components/GeoDetailBox';
+import IntroModal from '../../components/IntroModal';
 
 const colors = {
   lightblue:"#87B6C9",
@@ -45,13 +47,19 @@ class App extends Component {
       related:[],
       time:"past",
       currentTime: 0,
-      firstClick:true
+      firstClick:true,
+      introModal:{
+        isOpen:true
+      }
     };
     this._selectGeo =this._selectGeo.bind(this);
     this._selectIcon = this._selectIcon.bind(this);
     this._setRelated = this._setRelated.bind(this);
     this._setTime = this._setTime.bind(this);
     this._setState= this._setState.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this._onMapClick = this._onMapClick.bind(this);
   }
 
   componentDidMount() {
@@ -182,7 +190,30 @@ class App extends Component {
     this.setState(d);
   }
 
-  
+  openModal(){
+    this.setState({
+      introModal:{
+        isOpen:true
+      }
+    });
+  }  
+
+  closeModal(){
+    this.setState({
+      introModal:{
+        isOpen:false
+      }
+    });
+  }
+
+  _onMapClick(){
+    if(Object.keys(this.state.selectedGeo).length>0 || Object.keys(this.state.selectedIcon).length>0){
+      this.setState({
+        selectedGeo:{},
+        selectedIcon:{}
+      })
+    }
+  }  
 
 
   render() {
@@ -193,17 +224,8 @@ class App extends Component {
         mapStyle="mapbox://styles/taniavam/cj70x3gnx05k62sshl2on3fv1"
         onChangeViewport={this._onChangeViewport.bind(this)}
         mapboxApiAccessToken={MAPBOX_TOKEN}
-        scrollZoom={false}
-        dragPan={true}>
-        {Object.keys(this.state.selectedGeo).length > 0 ? 
-          <GeoDetailBox
-              colors={colors} 
-              selectedGeo={selectedGeo}
-              setRelated={this._setRelated}
-              selectedIcon={selectedIcon}
-              setTime={this._setTime}
-              time={time}
-              /> : <div></div>}
+        onClick={this._onMapClick}>
+        
         <DeckGLOverlay viewport={viewport}
           data={this.props.data}
           strokeWidth={2}
@@ -221,9 +243,32 @@ class App extends Component {
     /*
       Replace the inner div inside of <Style> component 
     */
+    // console.log(this.state);
     return (
       <Style {...this.props}>
+        
         {MapComponent}
+        <button 
+          className="about"
+          onClick={this.openModal}>
+          About
+        </button>
+       
+        {Object.keys(this.state.selectedGeo).length > 0 ? 
+          <GeoDetailBox
+              colors={colors} 
+              selectedGeo={selectedGeo}
+              setRelated={this._setRelated}
+              selectedIcon={selectedIcon}
+              setTime={this._setTime}
+              time={time}
+              /> : <div></div>}
+
+        <IntroModal 
+          isOpen={this.state.introModal.isOpen}
+          openModal={this.openModal}
+          closeModal={this.closeModal}
+          />
       </Style>
     );
   }

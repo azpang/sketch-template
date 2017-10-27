@@ -26,7 +26,8 @@ export default class DetailBoxPast extends Component {
   	//This is the "spread" syntax for object in ES6
     return <Style {...this.props} className="past">
         <div className="area-image">
-          <img src={this.props.selected.image || "images/C19.png"}/>
+          <div className="filter"></div>
+          <img src={this.props.selected.image || "images/past/default.jpg"}/>
         </div>
         <div className="rando-bar"></div>
         <div className="text-area">
@@ -50,7 +51,12 @@ export default class DetailBoxPast extends Component {
               setRelated={this.props.setRelated}/>
           </div>
         </div>
-          <div className="clear"></div>
+        {this.props.hasPresent > 0 ? 
+            <div className="button-container"
+              onClick={this.props.flip}>
+              <img src="images/Arrow.png"/>
+            </div>:
+              <div></div>}
     </Style>;
   }
 }

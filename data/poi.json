@@ -1,7 +1,7 @@
 [
     {
         "id":0,
-        "title":"Aaron's Home: His Introduction to Oakland",
+        "title":"Aaron's Home",
         "person":"Aaron Pang",
         "headshot":"images/headshots/AaronPang.jpg",
         "lat":37.764485,
@@ -81,7 +81,7 @@
     },
     {
         "id":6,
-        "title":"East Bay SPCA Oakland Adoption Center",
+        "title":"East Bay SPCA",
         "person":"William Lark",
         "headshot":"images/headshots/WilliamLark.jpg",        
         "lat":37.745500,
@@ -144,7 +144,7 @@
         "description":"I live here. It's a small, old bungalow built in 1923. I've always been nomadic and I've moved around a lot. I've lived all over California and spent 10 years in New York City before moving back to California a few years ago. I was looking for a place that didn't feel completely suburban. Coming from living in Brooklyn, I worried about setting down roots in a place that made me feel isolated so I made sure to find a place that felt community oriented and was  near the city center. The Black Panther movement was born here and to this day I still meet people affiliated in some way with party walking around the neighborhood. Some people might consider the area sketchy I guess but I grew up in sketchy area so I actually felt more comfortable here than in the more isolated parts of the Bay Area. There is some crime but people look out for each other, it doesn't matter if you're a long-time resident or new. My neighbor, Granny Taylor has lived here since 1947 and I had coffee at her house last weekend. She always tells me 'If there's anything you need, let Granny Taylor know.'"
     },
     {
-        "id":9,
+        "id":2,
         "title":"Sunburnt Art",
         "person":"Paul Schuette",
         "headshot":"images/headshots/PaulSchuette.jpg", 
