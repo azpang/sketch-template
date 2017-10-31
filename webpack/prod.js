@@ -101,7 +101,7 @@ module.exports = {
     new HtmlWebpackPlugin({
         title: "Redlining in Oakland",
         filename: "index.html",
-        template: "index.html"
+        template: "index_prod.html"
     }),
   ]
 

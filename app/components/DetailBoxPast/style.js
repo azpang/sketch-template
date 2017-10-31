@@ -28,22 +28,28 @@ export default styled.div`
         display:flex;
         flex-flow: column;
         overflow-y:auto;
+        
 
         .title{
             flex:1;
+            margin-bottom:30px;
+        }
+
+        .fav{
+            padding-bottom:30px;
         }
 
         .influences{
             flex:1;
-            padding-bottom:10px;
         }
 
         .fav-title, .detr-title{
+            font-size:.8rem;
             font-weight:bold;
         }
 
         .text-linker{
-            font-size:1rem;
+            font-size:.8rem;
             font-weight:lighter;
         }
     }

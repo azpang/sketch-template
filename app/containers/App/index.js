@@ -224,7 +224,9 @@ class App extends Component {
         mapStyle="mapbox://styles/taniavam/cj70x3gnx05k62sshl2on3fv1"
         onChangeViewport={this._onChangeViewport.bind(this)}
         mapboxApiAccessToken={MAPBOX_TOKEN}
-        onClick={this._onMapClick}>
+        onClick={this._onMapClick}
+        maxZoom={12}
+        minZoom={8}>
         
         <DeckGLOverlay viewport={viewport}
           data={this.props.data}

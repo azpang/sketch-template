@@ -74,7 +74,7 @@ export default styled.div`
     }
     .rando-bar{
         width: 80px;
-        height: 5px;
+        height: 3px;
         border-radius:100px;
         margin: 5px 30px;
     }
@@ -83,6 +83,9 @@ export default styled.div`
         padding: 10px 30px;
         flex:1;
     }
+    .text-linker{
+        line-height:1.7;
+    }
 
     .button-container{
         padding: 0px 30px;
@@ -90,6 +93,7 @@ export default styled.div`
         flex:.15;
         display:flex;
         justify-content: flex-end;
+        height:30px;
         max-height:30px;
 
         img{

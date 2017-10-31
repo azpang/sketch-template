@@ -31,6 +31,7 @@ export default styled.div`
         margin-bottom:30px;
         overflow:auto;
         font-weight:lighter;
+        font-size:.8rem;
         z-index:10;
     }
 
@@ -40,8 +41,9 @@ export default styled.div`
         flex-direction:row;
 
         .headshot-container{
-            flex:1;
-            width:25%;
+            flex:.5;
+            display:flex;
+            align-items: center;
             img{
                 width:100%;
                 border-radius:50%;
@@ -49,9 +51,15 @@ export default styled.div`
         }
 
         .person-description{
-            padding-top:30px;
-            padding-left:30px;
+            padding-left:20px;
             flex:3;
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            .name{
+                font-weight:bold;
+            }
+        
         }
     }
 `;

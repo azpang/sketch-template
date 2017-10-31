@@ -34,7 +34,7 @@ export default class DetailBoxPast extends Component {
           <div className="title">
             1937: Area {selected.id}
           </div>
-          <div className="influences">
+          <div className="fav influences">
             <div className="fav-title">FAVORABLE</div>
             <TextLinker
               color={this.props.colors.yellow}
@@ -42,7 +42,7 @@ export default class DetailBoxPast extends Component {
               connections={selected.in_common.fav_connections}
               setRelated={this.props.setRelated}/>
           </div>
-          <div className="influences">
+          <div className="detr influences">
             <div className="detr-title">DETRIMENTAL</div>
             <TextLinker
               color={this.props.colors.yellow}
@@ -56,7 +56,7 @@ export default class DetailBoxPast extends Component {
               onClick={this.props.flip}>
               <img src="images/Arrow.png"/>
             </div>:
-              <div></div>}
+              <div className="button-container"></div>}
     </Style>;
   }
 }
